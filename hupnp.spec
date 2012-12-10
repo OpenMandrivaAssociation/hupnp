@@ -99,3 +99,10 @@ rm -rf %{buildroot}
 
 
 
+
+
+%changelog
+* Fri Sep 02 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-1mdv2012.0
++ Revision: 697777
+- import hupnp
+
