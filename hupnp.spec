@@ -1,16 +1,14 @@
 %define srcname herqq
 
-Name:           hupnp
-Summary:        Qt string template engine based on the Django template system
-Group:          System/Libraries
-Version:        1.0.0
-Release:        %mkrel 1
-License:        LGPLv3+
-URL:            http://www.herqq.org
-Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/%{srcname}-%{version}.zip
-BuildRequires:  qt4-devel
-
-
+Name:		hupnp
+Summary:	Qt4-based software library for building UPnP devices and control points
+Group:		System/Libraries
+Version:	1.0.0
+Release:	2
+License:	LGPLv3+
+URL:		http://www.herqq.org
+Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{srcname}-%{version}.zip
+BuildRequires:	qt4-devel
 
 %description
 Herqq UPnP (HUPnP) is a software library for building UPnP devices and control 
@@ -21,20 +19,18 @@ used in the Qt Framework. It integrates into Qt-based software smoothly and
 enables truly rapid UPnP development.
 
 %files
-%defattr(-,root,root,-)
 
 #--------------------------------------------------------------------
 %define hupnp_major 1
 %define libhupnp %mklibname hupnp %{hupnp_major}
 
 %package -n %{libhupnp}
-Summary: Library for %{name}
+Summary:	Library for %{name}
 
 %description -n %{libhupnp}
 Software library for building UPnP devices and control points.
 
 %files -n %{libhupnp}
-%defattr(-,root,root)
 %{_libdir}/libHUpnp.so.%{hupnp_major}*
 
 #--------------------------------------------------------------------
@@ -42,29 +38,26 @@ Software library for building UPnP devices and control points.
 %define libqtsolution %mklibname libqtsolution %{qtsolution_major}
 
 %package -n %{libqtsolution}
-Summary: Library for %{name}
+Summary:	Library for %{name}
 
 %description -n %{libqtsolution}
 Library for %{name}
 
-%files -n %{libqtsolution} 
-%defattr(-,root,root)
+%files -n %{libqtsolution}
 %{_libdir}/libQtSolutions_SOAP-2.7.so.%{qtsolution_major}*
-
 
 #--------------------------------------------------------------------
 
 %package devel
-Summary:        Development files for %{name}
-Group:          Development/C++  
-Requires:       %{libqtsolution} = %{version}-%{release}
-Requires:       %{libhupnp} = %{version}-%{release}
+Summary:	Development files for %{name}
+Group:		Development/C++
+Requires:	%{libqtsolution} = %{version}-%{release}
+Requires:	%{libhupnp} = %{version}-%{release}
 
 %description devel
 Libraries and header files to develop applications that use %{name}.
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/HUpnpCore/
 %{_libdir}/libQtSolutions_SOAP-2.7.so
 %{_libdir}/libHUpnp.so
@@ -79,11 +72,8 @@ Libraries and header files to develop applications that use %{name}.
 
 %make
 
-
-
 %install
-rm -rf %{buildroot}
-%makeinstall
+%makeinstall_std
 mkdir -p %{buildroot}%{_libdir}
 mkdir -p %{buildroot}/usr/include/HUpnpCore
 pushd hupnp/bin
@@ -92,17 +82,4 @@ popd
 pushd hupnp/deploy/include/HUpnpCore/
 mv * %{buildroot}/usr/include/HUpnpCore/
 popd
-
-
-%clean
-rm -rf %{buildroot}
-
-
-
-
-
-%changelog
-* Fri Sep 02 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.0-1mdv2012.0
-+ Revision: 697777
-- import hupnp
 
