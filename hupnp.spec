@@ -1,10 +1,11 @@
 %define srcname herqq
+%define api 2.7
 
 Name:		hupnp
 Summary:	Qt4-based software library for building UPnP devices and control points
 Group:		System/Libraries
 Version:	1.0.0
-Release:	2
+Release:	3
 License:	LGPLv3+
 URL:		http://www.herqq.org
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{srcname}-%{version}.zip
@@ -35,7 +36,7 @@ Software library for building UPnP devices and control points.
 
 #--------------------------------------------------------------------
 %define qtsolution_major 1
-%define libqtsolution %mklibname libqtsolution %{qtsolution_major}
+%define libqtsolution %mklibname qtsolution %{api} {qtsolution_major}
 
 %package -n %{libqtsolution}
 Summary:	Library for %{name}
@@ -44,7 +45,7 @@ Summary:	Library for %{name}
 Library for %{name}
 
 %files -n %{libqtsolution}
-%{_libdir}/libQtSolutions_SOAP-2.7.so.%{qtsolution_major}*
+%{_libdir}/libQtSolutions_SOAP-%{api}.so.%{qtsolution_major}*
 
 #--------------------------------------------------------------------
 
@@ -59,7 +60,7 @@ Libraries and header files to develop applications that use %{name}.
 
 %files devel
 %{_includedir}/HUpnpCore/
-%{_libdir}/libQtSolutions_SOAP-2.7.so
+%{_libdir}/libQtSolutions_SOAP-%{api}.so
 %{_libdir}/libHUpnp.so
 
 #--------------------------------------------------------------------
