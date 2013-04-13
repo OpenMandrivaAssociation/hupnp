@@ -1,5 +1,6 @@
 %define srcname herqq
 %define api 2.7
+%define debug_package %{nil}
 
 Name:		hupnp
 Summary:	Qt4-based software library for building UPnP devices and control points
@@ -36,7 +37,7 @@ Software library for building UPnP devices and control points.
 
 #--------------------------------------------------------------------
 %define qtsolution_major 1
-%define libqtsolution %mklibname qtsolution %{api} {qtsolution_major}
+%define libqtsolution %mklibname qtsolution %{api} %{qtsolution_major}
 
 %package -n %{libqtsolution}
 Summary:	Library for %{name}
