@@ -72,7 +72,7 @@ Libraries and header files to develop applications that use %{name}.
 %build
 %qmake_qt4 %{srcname}.pro
 
-%make
+%make CXX=g++ CC=gcc LINK=g++
 
 %install
 %makeinstall_std
