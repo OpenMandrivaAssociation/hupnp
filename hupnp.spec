@@ -10,6 +10,8 @@ Release:	11
 License:	LGPLv3+
 URL:		http://www.herqq.org
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{srcname}-%{version}.zip
+Patch0:		patch-hmulticast_socket.cpp
+Patch1:		patch-hupnp__src__devicehosting__devicehost__hpresence_announcer_p.h
 BuildRequires:	qt4-devel
 
 %description
@@ -68,9 +70,10 @@ Libraries and header files to develop applications that use %{name}.
 
 %prep
 %setup -q -n %{srcname}-%{version}
+%apply_patches
 
 %build
-%qmake_qt4 %{srcname}.pro
+%qmake_qt4 %{srcname}.pro CONFIG+="DISABLE_AVTESTAPP DISABLE_TESTAPP"
 
 %make CXX=%{__cxx} CC=%{__cc} LINK=%{__cxx}
 
