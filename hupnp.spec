@@ -6,7 +6,7 @@ Name:		hupnp
 Summary:	Qt4-based software library for building UPnP devices and control points
 Group:		System/Libraries
 Version:	1.0.0
-Release:	12
+Release:	13
 License:	LGPLv3+
 URL:		http://www.herqq.org
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{srcname}-%{version}.zip
