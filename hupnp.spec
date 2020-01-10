@@ -70,7 +70,7 @@ Libraries and header files to develop applications that use %{name}.
 
 %prep
 %setup -q -n %{srcname}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %qmake_qt4 %{srcname}.pro CONFIG+="DISABLE_AVTESTAPP DISABLE_TESTAPP"
