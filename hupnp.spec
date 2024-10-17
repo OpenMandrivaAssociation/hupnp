@@ -8,7 +8,7 @@ Group:		System/Libraries
 Version:	1.0.0
 Release:	15
 License:	LGPLv3+
-URL:		http://www.herqq.org
+URL:		https://www.herqq.org
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{srcname}-%{version}.zip
 Patch0:		patch-hmulticast_socket.cpp
 Patch1:		patch-hupnp__src__devicehosting__devicehost__hpresence_announcer_p.h
